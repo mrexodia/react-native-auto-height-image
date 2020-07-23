@@ -22,7 +22,8 @@
   "author": "vivaxy",
   "license": "MIT",
   "dependencies": {
-    "prop-types": "^15.7.2"
+    "prop-types": "^15.7.2",
+    "react-native-expo-image-cache": "^4.1.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^9.0.0",

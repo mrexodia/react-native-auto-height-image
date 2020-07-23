@@ -6,6 +6,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import ImagePolyfill from './imagePolyfill';
 import AnimatableImage from './animatableImage';
 import PropTypes from 'prop-types';
+import { Image as CachedImage } from 'react-native-expo-image-cache';
 
 import { getImageSizeFitWidth, getImageSizeFitWidthFromCache } from './cache';
 import { NOOP, DEFAULT_HEIGHT } from './helpers';
@@ -50,10 +51,9 @@ function AutoHeightImage(props) {
   // StyleSheet.create will cache styles, not what we want
   const imageStyles = { width, height };
 
-  // Since it only makes sense to use polyfill with remote images
-  const ImageComponent = source.uri ? ImagePolyfill : AnimatableImage;
+  // Use a CachedImage
   return (
-    <ImageComponent source={source} style={[imageStyles, style]} {...rest} />
+    <CachedImage uri={source.uri} style={[imageStyles, style]} {...rest} />
   );
 }
 
